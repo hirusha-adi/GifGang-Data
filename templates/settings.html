@@ -1,0 +1,93 @@
+{% extends "settings_base.html" %}
+
+{% block title %}Admin Settings | GifGang{% endblock %}
+{% block head_stuff %}{% endblock %}
+
+{% block content %}
+
+{% if show_torrents_form == True %}
+<!-- Torrent Settings -->
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Torrents List</h2>
+
+    <div class="row" style="height:100%">
+
+        <!-- Column with all form -->
+        <div class="col-md-9">
+            <div class="container">
+
+                <form action="{{ url_for('torrents_add_post') }}" method="post">
+
+                    <!-- Torrent -->
+                    <h3>Add New Torrent</h3>
+                    <div class="form-group">
+
+                        <label for=TorrentTitle>Title</label>
+                        <input type="text" class="form-control" id="TorrentTitle" name="TorrentTitle" value=""
+                            placeholder="Title of the torrent">
+                        <br>
+
+                        <label for=TorrentSize>Size</label>
+                        <input type="text" class="form-control" id="TorrentSize" name="TorrentSize" value=""
+                            placeholder="Size of the torrent with units">
+                        <br>
+
+                        <label for=TorrentLink>Link</label>
+                        <input type="text" class="form-control" id="TorrentLink" name="TorrentLink" value=""
+                            placeholder="Magnext URL of the torrent">
+                        <br>
+
+                        <label for=TorrentQuality>Quality</label>
+                        <br>
+                        <select name="TorrentQuality" id="TorrentQuality">
+                            <option value="1" selected>1080p</option>
+                            <option value="2">480p</option>
+                        </select>
+                        <br>
+                        <br>
+
+                        <label for=TorrentSeeds>Seeds</label>
+                        <input type="text" class="form-control" id="TorrentSeeds" name="TorrentSeeds" value=""
+                            placeholder="Number of seeds of the torrent">
+                        <br>
+
+                        <label for=TorrentChannel>Channel</label>
+                        <input type="text" class="form-control" id="TorrentChannel" name="TorrentChannel" value=""
+                            placeholder="creator/channel of the torrent">
+                        <br>
+
+                        <label for=TorrentPage>Page</label>
+                        <input type="text" class="form-control" id="TorrentPage" name="TorrentPage" value="index">
+                        <br>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block"
+                                onClick="javascript:this.form.submit();">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

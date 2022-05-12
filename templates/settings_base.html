@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap4.min.css') }}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_settings.css') }}">
+
+    {% block head_stuff %}{% endblock %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="GifGang">
+    <meta name="description" content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://gifgang.net/">
+    <meta property="og:title" content="GifGang">
+    <meta property="og:description"
+        content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+    <meta property="og:image" content="{{ url_for('static', filename='img/favicon.ico') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://gifgang.net/">
+    <meta property="twitter:title" content="GifGang">
+    <meta property="twitter:description"
+        content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+    <meta property="twitter:image" content="{{ url_for('static', filename='img/favicon.ico') }}">
+
+</head>
+
+<body>
+
+    <div class="container-fluid main" style="height:100vh;padding-left:0px;">
+
+        <!-- Mobile Menu Button -->
+        <div class="d-block d-md-none menu">
+            <div class="bar"></div>
+        </div>
+
+        <!-- Mobile Side Bar -->
+        <div class="expand-menu nav flex-column">
+            <a href="{{ url_for('torrents') }}" class="nav-link mb-auto">
+                Torrents
+            </a>
+        </div>
+
+        <div class="row align-items-center" style="height:100%">
+
+            <!-- Desktop Side Bar -->
+            <div class="col-md-3 d-none d-md-block" style="height:100%">
+                <div class="container-fluid nav sidebar flex-column">
+                    <a href="{{ url_for('torrents') }}" class="nav-link mb-auto">
+                        Torrents
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/libs/jquery-3.3.1.min.js') }}"></script>
+
+    <!-- Popper.js -->
+    <script src="{{ url_for('static', filename='js/libs/popper.min.js') }}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/libs/bootstrap4.min.js') }}"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/admin_settings.js') }}"></script>
+
+</body>
+
+</html>
