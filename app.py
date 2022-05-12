@@ -15,13 +15,13 @@ def torrents_add_post():
     TorrentQuality = request.form.get('TorrentQuality')
 
     temp_data = {
-        'title': str(request.form.get('TorrentTitle')),
-        'size': str(request.form.get('TorrentSize')),
-        'link': str(request.form.get('TorrentLink')),
+        'title': str(request.form.get('TorrentTitle')).strip(),
+        'size': str(request.form.get('TorrentSize')).strip(),
+        'link': str(request.form.get('TorrentLink')).strip(),
         'quality': '1080p' if TorrentQuality == "1" else '480p',
-        'se': int(request.form.get('TorrentSeeds')),
-        'channel': str(request.form.get('TorrentChannel')),
-        'page': str(request.form.get('TorrentPage'))
+        'se': int(request.form.get('TorrentSeeds').strip()),
+        'channel': str(request.form.get('TorrentChannel')).strip(),
+        'page': str(request.form.get('TorrentPage')).strip()
     }
 
     print("Recieved Data --->")
