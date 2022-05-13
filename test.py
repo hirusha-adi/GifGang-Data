@@ -1,7 +1,9 @@
-import os
-import json
+import requests as r
+from bs4 import BeautifulSoup
 
-torrents_json_file_name = os.path.join(os.getcwd(), "GifGang", "torrents.json")
+d = r.get("http://rarbgenter.org/torrents.php?search=Tushy&category%5B%5D=1")
 
-with open(torrents_json_file_name, "r", encoding="utf-8") as _file:
-    data = json.load(_file)
+with open("sample.html", "wb") as f:
+    f.write(d.content)
+
+print(d.text)
