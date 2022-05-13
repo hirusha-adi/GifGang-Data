@@ -2,6 +2,8 @@ from flask import Flask, redirect, render_template, request, url_for
 import os
 import json
 
+from pyrsistent import T
+
 torrents_json_file_name = os.path.join(os.getcwd(), "GifGang", "torrents.json")
 
 app = Flask(__name__)
@@ -13,12 +15,19 @@ def torrents_add_post():
         data = json.load(_file)
 
     TorrentQuality = request.form.get('TorrentQuality')
+    quality = ""
+    if TorrentQuality == "1":
+        quality = '1080p'
+    elif TorrentQuality == "2":
+        quality == "720p"
+    else:
+        quality == "480p"
 
     temp_data = {
         'title': str(request.form.get('TorrentTitle')).strip(),
         'size': str(request.form.get('TorrentSize')).strip(),
         'link': str(request.form.get('TorrentLink')).strip(),
-        'quality': '1080p' if TorrentQuality == "1" else '480p',
+        'quality': quality,
         'se': int(request.form.get('TorrentSeeds').strip()),
         'channel': str(request.form.get('TorrentChannel')).strip(),
         'page': str(request.form.get('TorrentPage')).strip()
