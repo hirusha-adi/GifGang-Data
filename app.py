@@ -2,7 +2,6 @@ from flask import Flask, redirect, render_template, request, url_for
 import os
 import json
 
-from pyrsistent import T
 
 torrents_json_file_name = os.path.join(os.getcwd(), "GifGang", "torrents.json")
 
@@ -53,9 +52,12 @@ def torrents_add_post():
 
 @app.route("/")
 def torrents():
+    with open(torrents_json_file_name, "r", encoding="utf-8") as _file:
+        data = json.load(_file)
     return render_template(
         "settings.html",
-        show_torrents_form=True
+        show_torrents_form=True,
+        all_elems=len(data)
     )
 
 
