@@ -13,14 +13,14 @@ def torrents_add_post():
     with open(torrents_json_file_name, "r", encoding="utf-8") as _file:
         data = json.load(_file)
 
-    TorrentQuality = request.form.get('TorrentQuality')
+    TorrentQuality = request.form.get('TorrentQuality').strip()
     quality = ""
     if TorrentQuality == "1":
         quality = '1080p'
     elif TorrentQuality == "2":
-        quality == "720p"
+        quality = "720p"
     else:
-        quality == "480p"
+        quality = "480p"
 
     temp_data = {
         'title': str(request.form.get('TorrentTitle')).strip(),
