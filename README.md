@@ -9,5 +9,6 @@ Store MongoDB related stuff - mainly torrents
 - Tushy and TushyRaw: 50
 - Pornworld: 50
 - Family Strokes: 50
-- Babes: 0
 - Brazzers: 50
+- JavHUB: 50
+- MomsTeachSex: 50
