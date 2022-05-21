@@ -12,3 +12,4 @@ Store MongoDB related stuff - mainly torrents
 - Brazzers: 50
 - JavHUB: 50
 - MomsTeachSex: 50
+- PassionHD: 50
